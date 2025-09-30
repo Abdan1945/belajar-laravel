@@ -73,7 +73,7 @@ Route::get('kelulusan/{nama?}/{mapel?}/{lulus?}', function ($a = "Tidak Ada Nila
 });
 
 Route::get('grading/{nama?}/{nilai?}', function ($a="guest",$b = 0) {
-    return view('grading', ['nama => $a, 'nilai =>$b]);
+    return view('grading', ['nama' => $a, 'nilai' =>$b]);
 });
 
 
