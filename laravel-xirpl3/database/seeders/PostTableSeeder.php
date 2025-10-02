@@ -14,7 +14,7 @@ class PostTableSeeder extends Seeder
     public function run(): void
     {
         //hapus data awal
-       DB::table('buku')->delete();
+       DB::table('posts')->delete();
          
        //sample data
        $post = [
@@ -22,6 +22,7 @@ class PostTableSeeder extends Seeder
         ['title'=>'Tips Belajar Laravel', 'content'=>'Lorem ipsum'],
         ['title'=>'Jadwal Latihan', 'content'=>'Lorem ipsum']
        ];
-       DB::table('buku')->insert($post);
+       
+       DB::table('posts')->insert($post);
     }
 }
