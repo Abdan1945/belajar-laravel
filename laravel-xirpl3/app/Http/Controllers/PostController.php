@@ -37,6 +37,14 @@ class PostController extends Controller
         return redirect()->route('post.index'); //alihkan halaman ke halaman post (daftar post
     }
 
+
+    public function show($id)
+    {
+        //mencari data post berdasarkan parameter 'id'
+        $post = Post::findOrfail($id);
+        return view('post.show', compact('post'));
+    }
+    
     public function edit($id)
     {
         //mencari data post berdasarkan parameter 'id'

@@ -153,4 +153,10 @@ Route::post('post', [PostController::class, 'store'])->name('post.store');
 Route::get('post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
 Route::put('post/{id}', [PostController::class, 'update'])->name('post.update');
 
+Route::get('post/{id}', [PostController::class, 'show'])->name('post.show');
+
 Route::delete('post/{id}', [PostController::class, 'destroy'])->name('post.delete');
+
+Route::resource('produk', App\Http\Controllers\ProdukController::class)->middleware('auth');
+
+
