@@ -160,3 +160,7 @@ Route::delete('post/{id}', [PostController::class, 'destroy'])->name('post.delet
 Route::resource('produk', App\Http\Controllers\ProdukController::class)->middleware('auth');
 
 
+use App\Http\Controllers\BiodataController;
+Route::resource('biodata', BiodataController::class);
+
+
