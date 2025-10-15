@@ -14,7 +14,7 @@ class RelasiSeeder extends Seeder
     public function run()
     {
         $mahasiswa = Mahasiswa::create([
-            'nama' => 'galih',
+            'nama' => 'abdan',
             'nim'  => '123456',
         ]);
 
