@@ -172,3 +172,7 @@ Route::resource('hobi', App\Http\Controllers\HobiController::class)->middleware(
 Route::resource('mahasiswa', App\Http\Controllers\MahasiswaController::class);
 
 Route::resource('wali', App\Http\Controllers\WaliController::class);
+
+Route::resource('pelanggan', App\Http\Controllers\PelangganController::class)->middleware('auth');
+
+Route::resource('transaksi', App\Http\Controllers\TransaksiController::class)->middleware('auth');
