@@ -176,3 +176,5 @@ Route::resource('wali', App\Http\Controllers\WaliController::class);
 Route::resource('pelanggan', App\Http\Controllers\PelangganController::class)->middleware('auth');
 
 Route::resource('transaksi', App\Http\Controllers\TransaksiController::class)->middleware('auth');
+
+Route::resource('prodak', App\Http\Controllers\ProdakController::class)->middleware('auth');

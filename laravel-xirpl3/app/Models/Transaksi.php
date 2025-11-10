@@ -9,14 +9,21 @@ class Transaksi extends Model
     use HasFactory;
 
     protected $fillable = [
-        'kode_transaksi',
-        'tanggal',
-        'pelanggan_id',
-        'total_harga',
+        'kode',
+        'id_pelanggan',
+        'id_produk',
+        'jumlah',
+        'total_harga'
     ];
 
     public function pelanggan()
     {
-        return $this->belongsTo(Pelanggan::class);
+        return $this->belongsTo(Pelanggan::class, 'id_pelanggan');
+    }
+    public function produk()
+    {
+        return $this->belongsToMany(Produk::class, 'detail_transaksi', 'id_transaksi','id_produk')
+            ->withPivot('jumlah','sub_total')
+            ->withTimestamps();
     }
 }
