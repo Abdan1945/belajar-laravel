@@ -15,7 +15,7 @@ class PembayaranController extends Controller
         $pembayarans = Pembayaran::with('transaksi')
             ->when($search, function ($query) use ($search) {
                 $query->whereHas('transaksi', function ($q) use ($search) {
-                    $q->where('kode', 'like', "%$search%");
+                    $q->where('kode_transaksi', 'like', "%$search%");
                 });
             })
             ->latest()
@@ -27,7 +27,7 @@ class PembayaranController extends Controller
     // ✅ CARI TRANSAKSI SEBELUM BAYAR
     public function searchTransaksi(Request $request)
     {
-        $kode      = $request->get('kode');
+        $kode      = $request->get('kode_transaksi');
         $transaksi = Transaksi::where('kode_transaksi', 'like',  $kode)->first();
 
         if (! $transaksi) {
