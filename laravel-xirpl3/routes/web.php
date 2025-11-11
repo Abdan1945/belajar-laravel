@@ -145,7 +145,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::delete('post/{id]', [postController::class, 'delete'])->name('post.delete');
 
-Route::resource('produk', App\Http\Controllers\ProdukController::class)->middleware('auth');
+
 
 use App\Http\Controllers\RelasiController;
 Route::resource('biodata', BiodataController::class);
@@ -165,16 +165,13 @@ Route::get('/many-to-many', [RelasiController::class, 'manyToMany']);
 Route::get('eloquent', [RelasiController::class, 'eloquent']);
 
 Route::resource('dosen', App\Http\Controllers\DosenController::class)->middleware('auth');
-
 Route::resource('hobi', App\Http\Controllers\HobiController::class)->middleware('auth');
-
-
 Route::resource('mahasiswa', App\Http\Controllers\MahasiswaController::class);
-
 Route::resource('wali', App\Http\Controllers\WaliController::class);
 
-Route::resource('pelanggan', App\Http\Controllers\PelangganController::class)->middleware('auth');
 
-Route::resource('transaksi', App\Http\Controllers\TransaksiController::class)->middleware('auth');
-
-Route::resource('prodak', App\Http\Controllers\ProdakController::class)->middleware('auth');
+    Route::get('transaksi/search', [App\Http\Controllers\TransaksiController::class, 'search'])->name('transaksi.search');
+    Route::resource('pelanggan', App\Http\Controllers\PelangganController::class);
+    Route::resource('produk', App\Http\Controllers\ProdukController::class);
+    Route::resource('transaksi', App\Http\Controllers\TransaksiController::class);
+    Route::resource('pembayaran', App\Http\Controllers\PembayaranController::class);

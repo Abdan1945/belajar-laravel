@@ -87,8 +87,8 @@
 <script>
     function hitungSubtotal() {
         let total = 0;
-        document.querySelectorAll('.prodak-item').forEach(item => {
-            let select = item.querySelector('.prodak-select');
+        document.querySelectorAll('.produk-item').forEach(item => {
+            let select = item.querySelector('.produk-select');
             let jumlah = item.querySelector('.jumlah-input');
             let subtotalInput = item.querySelector('.subtotal');
 
@@ -107,11 +107,11 @@
 
     // Tambah produk baru
     document.getElementById('btn-add').addEventListener('click', function() {
-        let wrapper = document.getElementById('prodak-wrapper');
+        let wrapper = document.getElementById('produk-wrapper');
         let newRow = wrapper.firstElementChild.cloneNode(true);
 
         newRow.querySelectorAll('input').forEach(i => i.value = i.classList.contains('jumlah-input') ? 1 : 'Rp0');
-        newRow.querySelector('.prodak-select').value = '';
+        newRow.querySelector('.produk-select').value = '';
 
         wrapper.appendChild(newRow);
     });
@@ -119,9 +119,9 @@
     // Hapus produk
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('btn-remove')) {
-            let items = document.querySelectorAll('.prodak-item');
+            let items = document.querySelectorAll('.produk-item');
             if (items.length > 1) {
-                e.target.closest('.prodak-item').remove();
+                e.target.closest('.produk-item').remove();
                 hitungSubtotal();
             }
         }
